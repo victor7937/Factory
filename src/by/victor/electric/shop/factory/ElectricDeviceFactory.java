@@ -13,6 +13,11 @@ public class ElectricDeviceFactory {
 
     private static final Map<DeviceType, Supplier<ElectricDevice>> templates = new HashMap<>();
     private static final Map<DeviceType, Supplier<Customizer>> customizers = new HashMap<>();
+    private static final ElectricDeviceFactory instance = new ElectricDeviceFactory();
+
+    public static ElectricDeviceFactory getInstance() { return instance; }
+
+    private ElectricDeviceFactory (){}
 
     static {
         templates.put(OVEN, Oven::new);
